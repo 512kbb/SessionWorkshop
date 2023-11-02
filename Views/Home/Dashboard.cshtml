@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand">Welcome @Context.Session.GetString("UserName")</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 flex-row-reverse">
+                        <li class="nav-item">
+                            <a class="nav-link  btn btn-danger" asp-controller="Home" asp-action="CerrarSesion">Cerrar Sesion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<main class="text-center">
+    <section>
+        <h1>@Context.Session.GetInt32("Count")</h1>
+        <div class="mb-2">
+            <a class="btn btn-warning px-5" href="/operation?operation=sum">+1</a>
+            <a class="btn btn-info px-5"  href="/operation?operation=minus">-1</a>
+        </div>
+        <div>
+            <a class="btn btn-danger px-5"  href="/operation?operation=double">x2</a>
+            <a class="btn btn-success px-4" href="/operation?operation=random">+Random</a>
+        </div>
+    </section>
+
+</main>
